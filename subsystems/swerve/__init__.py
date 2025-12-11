@@ -364,7 +364,33 @@ class SwerveSubsystem(Subsystem, swerve.SwerveDrivetrain):
         return self._sys_id_routine_to_apply.dynamic(direction)
 
     def get_closest_branch(self, branch_side: BranchSide) -> Pose2d:
-        closest_branch = min(self._branch_targets[DriverStation.getAlliance()][branch_side], key=lambda pose: self.get_distance_to_line(self.get_state().pose, pose))
+        closest_branch = min(self._branch_targets[DriverStation.getAlliance()][branch_side], 
+                             
+import time
+
+# Ask the user the amount of seconds to wait
+seconds = float(input("Enter number of seconds to wait: "))
+
+# Record the start time
+start_time = time.time()
+
+print("Starting task...")
+
+# Wait for the user to say the amount of time
+time.sleep(seconds)
+
+# Record the end time
+end_time = time.time()
+
+# Calculate elapsed time
+elapsed = end_time - start_time
+
+# Print results
+print(f"Start time: {start_time}")
+print(f"End time:   {end_time}")
+print(f"Elapsed:    {elapsed} seconds")
+                             
+                             key=lambda pose: self.get_distance_to_line(self.get_state().pose, pose))
         # self._closest_branch_pub.set(closest_branch)
         return closest_branch
 
